@@ -1,7 +1,8 @@
 <form action="" class="search-form">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search git users with username" [(ngModel)]="username" name="username" (keyup)="findProfile()">
-    </div>
+    <input type="text" class="form-control" placeholder="Search git users with username" [(ngModel)]="username"
+      name="username" (keyup)="findProfile()">
+  </div>
 </form>
 
 <div ngIf="profile">
@@ -10,16 +11,20 @@
       {{profile.name}} <small>({{profile.login}})</small>
       <span ngIf="profile.company">, Works at {{profile.company}}</span>
       {{profile.location}}
+    </div>
+
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-3">
+          <img src="{{profile.avatar_url}}" class="img-circle img-responsive" alt="Profile image">
+        </div>
+<ul class="list-group">
+  <li class="list-group-item" ngIf="profile.bio">{{profile.bio}}</li>
+  <li class="list-group-item" ngIf="profile.hireable">Available for hire</li>
+  <li class="list-group-item" ngIf="profile.blog"><a href="{{profile.blog}}" target=""blank>{{profile.blog}}</a></li>
+  <li class="list-group-item" ngIf="profile.email"><a href="emailto:{{profile.email}}">{{profile.email}}</a></li>
+  </ul>
       </div>
-
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-sm-3">
-              <img src="../../assets/profgirl.png" class="img-circle img-responsive" alt="">
-              </div>
-
-              </div>
-            </div>
-            </div>
-            </div>
-    
+    </div>
+  </div>
+</div>

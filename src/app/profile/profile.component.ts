@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../profile/profile.service';
+import { ProfileService } from '../services/profile.service';
 
 @Component({
   selector: 'gg-profile',
@@ -13,7 +13,7 @@ repos:any[];
   constructor(private profileService: ProfileService) {
     this.profileService.getProfileInfo().subscribe(profile => {
       console.log(profile);
-      this.repos = repos;
+      this.profile = profile;
     })
    }
 
