@@ -1,2 +1,14 @@
 @import "~bootstrap/dist/css/bootstrap.css";
-    
+
+    body{
+    background-color: blueviolet;
+    margin: 30px;
+}
+
+#middle {
+width: 60px;
+    }
+
+    .whole {
+        color: whitesmoke;
+    }
