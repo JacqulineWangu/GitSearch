@@ -40,46 +40,46 @@
           </li>
         </ul>
       </div>
-      
-<div class="col-md-3"></div>
-     
-        
-          <div class="repoheading">
-            <div class="panel-heading">
-              <h3 class="panel-title">Repositories</h3>
+
+      <div class="col-md-3"></div>
+
+
+      <div class="repoheading">
+        <div class="panel-heading">
+          <h3 class="panel-title">Repositories</h3>
+        </div>
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="col-md-3 " *ngFor="let repo of repos">
+          <div class="card down">
+            <div class="card-body">
+              <h3 class="card-title">{{repo.name}}</h3>
+
+
+
+
+              <span class="badge badge-secondary">{{repo.watchers}} Stars </span> <br>
+              <span class="badge badge-dark">{{repo.forks}} Forks </span>
+
+
+
+
+
+              <p class="card-text">{{repo.description}}</p>
+              <p>
+                <a href="{{repo.html_url}}" target="blank" class="btn btn-sm btn-warning">View this project
+                  on github</a>
+
+              </p>
             </div>
           </div>
-
-          
-
-
-            <div class="row">
-              <div class="col-md-3 " *ngFor="let repo of repos">
-                <div class="card down">
-                  <div class="card-body">
-                    <h3 class="card-title">{{repo.name}}</h3>
-
-
-                   
-
-                      <span class="badge badge-secondary">{{repo.watchers}} Stars </span> <br>
-                      <span class="badge badge-dark">{{repo.forks}} Forks </span>
-                   
+        </div>
+      </div>
 
 
 
-
-                    <p class="card-text">{{repo.description}}</p>
-                    <p>
-                      <a href="{{repo.html_url}}" target="blank" class="btn btn-sm btn-warning">View this project
-                        on github</a>
-
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-         
-
-   
     </div>

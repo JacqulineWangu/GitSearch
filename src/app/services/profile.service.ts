@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { Repository } from '../repository';
 
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root'
 })
 export class ProfileService {
 
@@ -16,14 +16,14 @@ export class ProfileService {
     this.username = 'JacqulineWangu';
   }
 
-  getProfileInfo():Observable<Repository> {
+  getProfileInfo(): Observable<Repository> {
     // tslint:disable-next-line:max-line-length
-    return this.http.get('https://api.github.com/users/' + this.username + '?access_token='+environment.token_key);
+    return this.http.get('https://api.github.com/users/' + this.username + '?access_token=' + environment.token_key);
   }
 
-  getProfileRepos():Observable<Repository> {
+  getProfileRepos(): Observable<Repository> {
     // tslint:disable-next-line:max-line-length
-    return this.http.get('https://api.github.com/users/' + this.username + '/repos?access_token='+environment.token_key);
+    return this.http.get('https://api.github.com/users/' + this.username + '/repos?access_token=' + environment.token_key);
   }
 
   updateProfile(username: string) {
