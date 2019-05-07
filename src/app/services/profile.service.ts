@@ -1,26 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, } from '@angular/common/http';
-import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+import { Repository } from '../repository';
+
+@Injectable({
+  providedIn:'root'
+})
 export class ProfileService {
 
   private username: string;
-  private clientid = "";
-  private clientsecret = "";
-
   constructor(private http: HttpClient) {
-    console.log("service is now ready!");
+    console.log('service is now ready!');
     this.username = 'JacqulineWangu';
   }
 
-  getProfileInfo() {
-    return this.http.get("https://api.github.com/users/" + this.username + "?client_id." + this.clientid + "&client_secret=" + this.clientsecret)
-    .map(res => res.json());
+  getProfileInfo():Observable<Repository> {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get('https://api.github.com/users/' + this.username + '?access_token='+environment.token_key);
   }
 
-  getProfileRepos(){
-    return this.http.get("https://api.github.com/users/" + this.username + "/repos?client_id." + this.clientid + "&client_secret=" + this.clientsecret)
-    .map(res => res.json());
+  getProfileRepos():Observable<Repository> {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get('https://api.github.com/users/' + this.username + '/repos?access_token='+environment.token_key);
   }
+
+  updateProfile(username: string) {
+    this.username = username;
+  }
+
 }
